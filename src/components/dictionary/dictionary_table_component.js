@@ -1,16 +1,16 @@
-import { loadError } from '../../app/services/error_service.js'
+import { loadDictionary } from '../../app/services/dictionary_service.js'
 
 let currentPage = 1
 
 async function render(page = 1) {
-    const tbody = document.querySelector('#errorTable tbody')
+    const tbody = document.querySelector('#dictionaryTable tbody')
     const pagination = document.getElementById('pagination')
     tbody.innerHTML = ''
     pagination.innerHTML = ''
 
     try {
         // Table
-        const res = await loadError(page)
+        const res = await loadDictionary(page)
         const data = res.data
         const meta = res.metadata
         currentPage = meta.page
@@ -18,9 +18,9 @@ async function render(page = 1) {
         data.forEach(dt => {
             const tr = document.createElement('tr')
             tr.innerHTML = `
-                <td>${dt.message}</td>
+                <td>${dt.dictionary_type}</td>
+                <td>${dt.dictionary_name}</td>
                 <td>${new Date(dt.created_at).toLocaleString()}</td>
-                <td>${dt.total}</td>
             `
             tbody.appendChild(tr)
         })
