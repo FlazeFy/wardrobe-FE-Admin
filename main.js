@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, ipcMain } = require('electron')
 const path = require('path')
 
 function createWindow() {
@@ -9,8 +9,22 @@ function createWindow() {
       contextIsolation: true
     }
   });
-  win.loadFile('index.html')
+  win.loadFile('./pages/login_page.html')
   win.webContents.openDevTools()
+
+  ipcMain.on('navigate-to', (event, page) => {
+    win.loadFile(`pages/${page}`)
+  })
 }
 
-app.whenReady().then(createWindow)
+app.whenReady().then(() => {
+  createWindow()
+
+  app.on('activate', () => {
+      if (BrowserWindow.getAllWindows().length === 0) createWindow()
+  })
+})
+
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') app.quit()
+})

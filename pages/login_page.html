@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Wardrobe Admin</title>
+    <link rel="stylesheet" href="../src/style/main.css" />
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Admin Login</h2>
+        <form id="login-form">
+            <input type="email" id="email" placeholder="Email" required />
+            <input type="password" id="password" placeholder="Password" required />
+            <button type="submit">Login</button>
+            <p id="error-msg" style="color: red;"></p>
+        </form>
+    </div>
+    
+    <script type="module">
+        import { setupLoginForm } from '../src/components/auth/auth_login_component.js'
+        setupLoginForm()
+    </script>
+</body>
+</html>

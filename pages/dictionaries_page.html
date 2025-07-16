@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Dictionary</h1>
-    <a href="../index.html">Go to Main Menu</a>
+    <button id="btn-main-menu">Go to Main Menu</button>
     <table id="dictionaryTable">
         <thead>
             <tr>
@@ -19,5 +19,11 @@
         <tbody></tbody>
     </table>
     <div id="pagination"></div>
+
+    <script type="module">
+        document.getElementById('btn-main-menu').addEventListener('click', () => {
+            window.electronAPI.navigateTo('home_page.html')
+        })
+    </script>
 </body>
 </html>
