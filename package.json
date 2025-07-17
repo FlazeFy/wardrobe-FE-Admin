@@ -11,5 +11,8 @@
   "license": "ISC",
   "devDependencies": {
     "electron": "^36.2.0"
+  },
+  "dependencies": {
+    "apexcharts": "^5.2.0"
   }
 }

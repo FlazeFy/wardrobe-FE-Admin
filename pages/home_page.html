@@ -18,24 +18,31 @@
     </head>
     <body>
         <h1>Welcome to Wardrobe Admin</h1>
-        <div class="container">
+        <div class="container" style="margin-bottom: 20px; min-width: 480px">
             <h3>Management</h3>
             <button id="btn-errors">Error</button>
             <button id="btn-dictionaries">Dictionary</button>
             <button id="btn-feedbacks">Feedbacks</button>
         </div>
-
+        <div class="container" style="margin-bottom: 20px; min-width: 480px">
+            <h3>Stats</h3>
+            <button id="btn-most-context-clothes">Most Context Clothes</button>
+        </div>
         <script type="module">
+            // Management
             document.getElementById('btn-errors').addEventListener('click', () => {
                 window.electronAPI.navigateTo('errors_page.html')
             })
-
             document.getElementById('btn-dictionaries').addEventListener('click', () => {
                 window.electronAPI.navigateTo('dictionaries_page.html')
             })
-
             document.getElementById('btn-feedbacks').addEventListener('click', () => {
                 window.electronAPI.navigateTo('feedbacks_page.html')
+            })
+
+            // Stats
+            document.getElementById('btn-most-context-clothes').addEventListener('click', () => {
+                window.electronAPI.navigateTo('most_context_clothes_page.html')
             })
         </script>
     </body>

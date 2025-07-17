@@ -62,7 +62,7 @@ table tr:hover {
     background-color: #212121;
 }
   
-input {
+input, select {
     padding: 8px 12px;
     border-radius: 20px;
     background: #414141;
