@@ -1,4 +1,4 @@
-import { initSelect } from './clothes_stats_select_component.js'
+import { initSelect } from './schedule_stats_select_component.js'
 import { loadStats } from '../../app/services/stats_service.js'
 
 async function renderChart(context) {
@@ -6,7 +6,7 @@ async function renderChart(context) {
     chartContainer.innerHTML = ''
 
     try {
-        const res = await loadStats('clothes', context, 'd4dbb0d3-8a96-489b-b86c-8bb77c4aea21')
+        const res = await loadStats('schedule', context, 'd4dbb0d3-8a96-489b-b86c-8bb77c4aea21')
         const data = res.data
 
         const labels = data.map(item => item.context)
@@ -20,7 +20,7 @@ async function renderChart(context) {
             series,
             colors: ['#008FFB', '#00E396', '#FEB019', '#FF4560', '#775DD0'],
             title: {
-                text: `Most Context Clothes - ${context.replace(/_/g, ' ')}`
+                text: `Most Context Schedule - ${context.replace(/_/g, ' ')}`
             }
         }
 
