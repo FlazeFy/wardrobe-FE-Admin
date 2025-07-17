@@ -29,6 +29,7 @@
             <button id="btn-most-context-clothes">Most Context Clothes</button>
             <button id="btn-most-context-clothes-used">Most Context Clothes Used</button>
             <button id="btn-most-context-schedules">Most Context Schedules</button>
+            <button id="btn-most-context-wash">Most Context Washes</button>
         </div>
         <script type="module">
             // Management
@@ -51,6 +52,9 @@
             })
             document.getElementById('btn-most-context-schedules').addEventListener('click', () => {
                 window.electronAPI.navigateTo('most_context_schedules_page.html')
+            })
+            document.getElementById('btn-most-context-wash').addEventListener('click', () => {
+                window.electronAPI.navigateTo('most_context_washes_page.html')
             })
         </script>
     </body>
