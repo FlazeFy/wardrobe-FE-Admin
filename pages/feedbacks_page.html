@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wardrobe Admin</title>
+    <script type="module" src="../src/components/feedback/feedback_table_component.js"></script>
+    <link rel="stylesheet" href="../src/style/main.css" />
+</head>
+<body>
+    <h1>Feedback</h1>
+    <button id="btn-main-menu">Go to Main Menu</button>
+    <table id="feedbackTable">
+        <thead>
+            <tr>
+                <th>Feedback Rate</th>
+                <th>Feedback Body</th>
+                <th>Created At</th>
+                <th>Created By</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <div id="pagination"></div>
+
+    <script type="module">
+        document.getElementById('btn-main-menu').addEventListener('click', () => {
+            window.electronAPI.navigateTo('home_page.html')
+        })
+    </script>
+</body>
+</html>

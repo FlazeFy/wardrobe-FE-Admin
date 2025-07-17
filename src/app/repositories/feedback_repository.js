@@ -1,6 +1,6 @@
 import { API_BASE_URL } from '../../const/config.js'
 
-export async function apiGetError(path) {
+export async function apiGetFeedback(path) {
     const token = localStorage.getItem('token')
 
     const res = await fetch(`${API_BASE_URL}${path}`, {
@@ -15,6 +15,6 @@ export async function apiGetError(path) {
     return res.json()
 }
 
-export async function fetchError(page = 1) {
-    return await apiGetError(`/errors?page=${page}`)
+export async function fetchFeedback(page = 1) {
+    return await apiGetFeedback(`/feedbacks?page=${page}`)
 }

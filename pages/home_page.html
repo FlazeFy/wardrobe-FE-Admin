@@ -18,9 +18,11 @@
     </head>
     <body>
         <h1>Welcome to Wardrobe Admin</h1>
-        <div>
-            <button id="btn-errors">Error Management</button>
-            <button id="btn-dictionaries">Dictionary Management</button>
+        <div class="container">
+            <h3>Management</h3>
+            <button id="btn-errors">Error</button>
+            <button id="btn-dictionaries">Dictionary</button>
+            <button id="btn-feedbacks">Feedbacks</button>
         </div>
 
         <script type="module">
@@ -30,6 +32,10 @@
 
             document.getElementById('btn-dictionaries').addEventListener('click', () => {
                 window.electronAPI.navigateTo('dictionaries_page.html')
+            })
+
+            document.getElementById('btn-feedbacks').addEventListener('click', () => {
+                window.electronAPI.navigateTo('feedbacks_page.html')
             })
         </script>
     </body>
