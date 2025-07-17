@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wardrobe Admin</title>
+    <script type="module" src="../src/components/stats/clothes_used_most_context_pie_chart_component.js"></script>
+    <script type="module" src="../src/components/stats/clothes_used_stats_select_component.js"></script>
+    <link rel="stylesheet" href="../src/style/main.css" />
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+<body>
+    <h1>Most Context Clothes Used Stats</h1>
+    <button id="btn-main-menu">Go to Main Menu</button>
+
+    <select id="stats-clothes-used-context-select"></select>
+    <div id="most-context-stats-holder" style="max-width: 500px; margin: auto;"></div>
+
+    <script type="module">
+        document.getElementById('btn-main-menu').addEventListener('click', () => {
+            window.electronAPI.navigateTo('home_page.html')
+        })
+    </script>
+</body>
+</html>

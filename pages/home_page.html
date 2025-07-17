@@ -27,6 +27,7 @@
         <div class="container" style="margin-bottom: 20px; min-width: 480px">
             <h3>Stats</h3>
             <button id="btn-most-context-clothes">Most Context Clothes</button>
+            <button id="btn-most-context-clothes-used">Most Context Clothes Used</button>
             <button id="btn-most-context-schedules">Most Context Schedules</button>
         </div>
         <script type="module">
@@ -44,6 +45,9 @@
             // Stats
             document.getElementById('btn-most-context-clothes').addEventListener('click', () => {
                 window.electronAPI.navigateTo('most_context_clothes_page.html')
+            })
+            document.getElementById('btn-most-context-clothes-used').addEventListener('click', () => {
+                window.electronAPI.navigateTo('most_context_clothes_used_page.html')
             })
             document.getElementById('btn-most-context-schedules').addEventListener('click', () => {
                 window.electronAPI.navigateTo('most_context_schedules_page.html')
