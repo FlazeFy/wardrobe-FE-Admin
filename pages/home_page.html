@@ -24,6 +24,7 @@
             <button id="btn-dictionaries">Dictionary</button>
             <button id="btn-feedbacks">Feedbacks</button>
             <button id="btn-users">Users</button>
+            <button id="btn-questions">Question</button>
         </div>
         <div class="container" style="margin-bottom: 20px; min-width: 480px">
             <h3>Stats</h3>
@@ -45,6 +46,9 @@
             })
             document.getElementById('btn-users').addEventListener('click', () => {
                 window.electronAPI.navigateTo('users_page.html')
+            })
+            document.getElementById('btn-questions').addEventListener('click', () => {
+                window.electronAPI.navigateTo('questions_page.html')
             })
 
             // Stats

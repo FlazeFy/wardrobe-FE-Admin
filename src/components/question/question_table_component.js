@@ -1,16 +1,16 @@
-import { loadUser } from '../../app/services/user_service.js'
+import { loadQuestion } from '../../app/services/question_service.js'
 
 let currentPage = 1
 
 async function render(page = 1) {
-    const tbody = document.querySelector('#userTable tbody')
+    const tbody = document.querySelector('#questionTable tbody')
     const pagination = document.getElementById('pagination')
     tbody.innerHTML = ''
     pagination.innerHTML = ''
 
     try {
         // Table
-        const res = await loadUser(page)
+        const res = await loadQuestion(page)
         const data = res.data
         const meta = res.metadata
         currentPage = meta.page
@@ -18,14 +18,9 @@ async function render(page = 1) {
         data.forEach(dt => {
             const tr = document.createElement('tr')
             tr.innerHTML = `
-                <td>${dt.username}</td>
-                <td>${dt.email}</td>
-                <td>${dt.total_clothes}</td>
-                <td>${dt.total_outfit}</td>
-                <td>
-                    <h4 style="margin:0;">${dt.telegram_user_id ?? '-'}</h4>
-                    <p>${dt.telegram_is_valid ? `<div class='btn-tag bg-success'>Validated</div>` : `<div class='btn-tag bg-danger'>Not Validated</div>`}</p>
-                </td>
+                <td>${dt.question}</td>
+                <td>${dt.answer ?? '-'}</td>
+                <td>${dt.is_show ? `<div class='btn-tag bg-success'>Answered</div>` : `<div class='btn-tag bg-danger'>Not Answered</div>`}</td>
                 <td>${new Date(dt.created_at).toLocaleString()}</td>
             `
             tbody.appendChild(tr)
