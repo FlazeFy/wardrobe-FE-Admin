@@ -1,37 +1,33 @@
-import { loadFeedback } from '../../app/services/feedback_service.js'
+import { loadUser } from '../../app/services/user_service.js'
 
 let currentPage = 1
 
 async function render(page = 1) {
-    const tbody = document.querySelector('#feedbackTable tbody')
+    const tbody = document.querySelector('#userTable tbody')
     const pagination = document.getElementById('pagination')
     tbody.innerHTML = ''
     pagination.innerHTML = ''
 
-    const getColorFeedbackRate = (rate) => {
-        if (rate >= 4) return '#00c896'
-        else if (rate >= 2) return '#fbb566'
-        return '#d6806e'
-    }
-
     try {
         // Table
-        const res = await loadFeedback(page)
+        const res = await loadUser(page)
         const data = res.data
         const meta = res.metadata
         currentPage = meta.page
 
         data.forEach(dt => {
-            const color = getColorFeedbackRate(dt.feedback_rate)
             const tr = document.createElement('tr')
             tr.innerHTML = `
-                <td><div style="background:${color};" class="btn-tag">${dt.feedback_rate}</div></td>
-                <td>${dt.feedback_body}</td>
-                <td>${new Date(dt.created_at).toLocaleString()}</td>
+                <td>${dt.id}</td>
+                <td>${dt.username}</td>
+                <td>${dt.email}</td>
+                <td>${dt.total_clothes}</td>
+                <td>${dt.total_outfit}</td>
                 <td>
-                    <h4 style="margin:0;">${dt.user.username} - ${dt.user.email}</h4>
-                    <p>Joined at ${new Date(dt.user.created_at).toLocaleString()}</p>
+                    <h4 style="margin:0;">${dt.telegram_user_id ?? '-'}</h4>
+                    <p>${dt.telegram_is_valid ? `<div class='btn-tag bg-success'>Validated</div>` : `<div class='btn-tag bg-danger'>Not Validated</div>`}</p>
                 </td>
+                <td>${new Date(dt.created_at).toLocaleString()}</td>
             `
             tbody.appendChild(tr)
         })
@@ -51,7 +47,7 @@ async function render(page = 1) {
         pagination.append(` Page ${meta.page} of ${meta.total_pages} `)
         pagination.appendChild(next)
     } catch (err) {
-        tbody.innerHTML = `<tr><td colspan="3">${err}</td></tr>`
+        tbody.innerHTML = `<tr><td colspan="3">Failed to load</td></tr>`
     }
 }
 

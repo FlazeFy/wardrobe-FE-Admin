@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wardrobe Admin</title>
+    <script type="module" src="../src/components/user/user_table_component.js"></script>
+    <link rel="stylesheet" href="../src/style/main.css" />
+</head>
+<body>
+    <h1>Users</h1>
+    <button id="btn-main-menu">Go to Main Menu</button>
+    <table id="userTable">
+        <thead>
+            <tr>
+                <th rowspan="2">ID</th>
+                <th rowspan="2">Username</th>
+                <th rowspan="2">Email</th>
+                <th colspan="2">Total</th>
+                <th rowspan="2">Telegram Account</th>
+                <th rowspan="2">Joined At</th>
+            </tr>
+            <tr>
+                <th>Clothes</th>
+                <th>Outfit</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <div id="pagination"></div>
+
+    <script type="module">
+        document.getElementById('btn-main-menu').addEventListener('click', () => {
+            window.electronAPI.navigateTo('home_page.html')
+        })
+    </script>
+</body>
+</html>
