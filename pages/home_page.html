@@ -15,6 +15,8 @@
                 text-align: center;
             }
         </style>
+        <!-- Swal -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </head>
     <body>
         <h1>Welcome to Wardrobe Admin</h1>
@@ -33,7 +35,13 @@
             <button id="btn-most-context-schedules">Most Context Schedules</button>
             <button id="btn-most-context-wash">Most Context Washes</button>
         </div>
+        <div class="container" style="margin-bottom: 20px; min-width: 480px">
+            <h3>Others</h3>
+            <button id="btn-logout-modal">Sign Out</button>
+        </div>
         <script type="module">
+            import { setupSignOutForm } from '../src/components/auth/auth_signout_component.js'
+
             // Management
             document.getElementById('btn-errors').addEventListener('click', () => {
                 window.electronAPI.navigateTo('errors_page.html')
@@ -64,6 +72,8 @@
             document.getElementById('btn-most-context-wash').addEventListener('click', () => {
                 window.electronAPI.navigateTo('most_context_washes_page.html')
             })
+
+            setupSignOutForm()
         </script>
     </body>
 </html>

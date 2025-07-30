@@ -1,3 +1,57 @@
+:root {   
+    /* Typography */
+    --textHuge : 78px;
+    --textXJumbo : 48px;
+    --textJumbo : 26px;
+    --textXLG : 18px;
+    --textLG : 16px;
+    --textXMD : 14px;
+    --textMD : 13px;
+    --textSM : 12px;
+    --textXSM : 11px;
+    --textMini : 9px;
+  
+    /* Rounded */
+    --roundedCircle : 100%;
+    --roundedJumbo : 34px;
+    --roundedXLG : 20px;
+    --roundedLG : 18px;
+    --roundedMD : 14px;
+    --roundedSM : 10px;
+    --roundedMini : 6px;
+  
+    /* Spacing */
+    --spaceJumbo : 35px;
+    --spaceXLG : 24px;
+    --spaceLG : 20px;
+    --spaceXMD : 16px;
+    --spaceMD : 12px;
+    --spaceSM : 10px;
+    --spaceXSM : 8px;
+    --spaceXXSM : 6px;
+    --spaceMini : 4px;
+  
+    /* Color Pallete */
+    --primaryLightBG : #ace5e8;
+    --successBG : #75e9a5;
+    --successDarkBG : #4cc086;
+    --dangerBG : #e7899c;
+    --dangerDarkBG : #ee385d;
+    --warningBG : #f7cc11;
+    --warningDarkBG : #ec9819;
+    --infoBG : #00a6e1;
+    --darkInfoBG : #005b9b;
+    --infoLightBG : #E7F4FE;
+    --hoverBG : #e8fdff;
+  
+    --primaryColor : #99cde1;
+    --blackColor : #212121;
+    --darkColor : #5B5B5B;
+    --whiteColor : #FFFFFF;
+    --greyColor : #F3F3F3;
+    --shadowColor : #808080;
+}
+
 body {
     font-family: system-ui, sans-serif;
     margin: 2rem;
@@ -76,4 +130,13 @@ input, select {
 
 .bg-danger {
     background: #ff83b1;
+}
+
+/* Modal */
+.swal2-popup {
+    border-radius: var(--roundedJumbo) !important;
+    background: var(--darkColor);
+    border: 1.75px solid var(--primaryColor);
+    color: var(--whiteColor);
+    box-shadow: rgba(59, 130, 246, 0.35) 0px 6px 17px;
 }
