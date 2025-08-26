@@ -125,15 +125,15 @@ input, select {
 }
 
 .bg-success {
-    background: #00c896;
+    background: #00c896 !important;
 }
 
 .bg-danger {
-    background: #ff83b1;
+    background: #ff83b1 !important;
 }
 
 /* Modal */
-.swal2-popup {
+.modal-content, .swal2-popup {
     border-radius: var(--roundedJumbo) !important;
     background: var(--darkColor);
     border: 1.75px solid var(--primaryColor);
